@@ -6,7 +6,7 @@ ENV RAILS_ENV=production \
 EXPOSE 3000 4000
 
 RUN apk add --no-cache --update git && \
-    git clone --depth=1 --branch=v1.2 https://github.com/tootsuite/mastodon/ /mastodon
+    git clone --depth=1 --branch=v1.2.2 https://github.com/tootsuite/mastodon/ /mastodon
 
 WORKDIR /mastodon
 
