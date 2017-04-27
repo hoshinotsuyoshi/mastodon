@@ -46,6 +46,7 @@ gem 'rack-timeout'
 gem 'rails-i18n'
 gem 'rails-settings-cached'
 gem 'redis', '~>3.2', require: ['redis', 'redis/connection/hiredis']
+gem 'redis-namespace'
 gem 'rqrcode'
 gem 'ruby-oembed', require: 'oembed'
 gem 'sidekiq'
