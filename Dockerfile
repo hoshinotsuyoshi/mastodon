@@ -5,10 +5,9 @@ ENV RAILS_ENV=production \
 
 EXPOSE 3000 4000
 
-RUN apk add --no-cache --update git && \
-    git clone --depth=1 --branch=v1.2.2 https://github.com/tootsuite/mastodon/ /mastodon
-
 WORKDIR /mastodon
+
+COPY . .
 
 RUN BUILD_DEPS=" \
     postgresql-dev \
@@ -30,6 +29,5 @@ RUN BUILD_DEPS=" \
  && yarn cache clean \
  && npm -g cache clean \
  && apk del $BUILD_DEPS \
- && rm -rf /tmp/* /var/cache/apk/*
-COPY migrate.rb .
-RUN ruby migrate.rb
+ && rm -rf /tmp/* /var/cache/apk/* \
+ && ruby precompile.rb
