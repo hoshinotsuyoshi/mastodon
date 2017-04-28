@@ -1,8 +1,5 @@
 FROM ruby:2.4.1-alpine
 
-LABEL maintainer="https://github.com/tootsuite/mastodon" \
-      description="A GNU Social-compatible microblogging server"
-
 ENV RAILS_ENV=production \
     NODE_ENV=production
 
@@ -41,4 +38,4 @@ RUN echo "@edge https://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposit
 
 COPY . /mastodon
 
-VOLUME /mastodon/public/system /mastodon/public/assets
+RUN ruby precompile.rb
